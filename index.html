@@ -12,14 +12,28 @@
     <script src="js/board.js"></script>
     <script src="js/util.js"></script>
     <script src="js/snake-view.js"></script>
+    <script src="js/system.js"></script>
 
-    <h1 class="header">Snake!</h1>
+    <div id="root">
+      <div id="welcome-screen">
+        <h1>Snake</h1>
+        <ul>
+          <li><a href="javascript:void(0)" id="start-game">Play</a></li>
+        </ul>
+      </div>
 
-    <div class="game-container">
+      <div id="game-over" class="hidden">
+        <h1>GAME OVER!</h1>
+        <p>You scored <span id="final-score"></span></p>
+        <a href="javascript:void(0)" id="back"><<< Back</a>
+      </div>
+
+      <div class="game-container">
+      </div>
+
     </div>
-
-    <script>
-      var view = new Snake.View($('.game-container'));
-    </script>
+    <div class="game-view hidden" id="score-container">
+      Score: <span id="score">0</span>
+    </div>
   </body>
 </html>

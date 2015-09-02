@@ -1,6 +1,17 @@
 * {
-  margin: 0;
-  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html, body, canvas {
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body {
+  background-color: black;
 }
 
 h1 {
@@ -9,14 +20,65 @@ h1 {
   text-align: center;
 }
 
-.game-container {
-  border: thick solid black;
+#root {
   position: absolute;
+  width: 500px;
+  height: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  border: thick solid white;
+}
+
+#welcome-screen {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+}
+
+#welcome-screen a {
+  color: black;
+  font-size: 30px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#score-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+}
+
+#game-over {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: solid white;
+  background-color: black;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+#game-over h1 {
+  margin-top: 0;
+}
+
+.game-container {
+  height: 100%;
+  width: 100%;
 }
 
 .game-container::after {
@@ -41,4 +103,8 @@ h1 {
 
 .snake {
   background-color: black;
+}
+
+.hidden {
+  display: none;
 }

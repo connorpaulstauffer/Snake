@@ -2,12 +2,14 @@
   var Snake = window.Snake = window.Snake || {};
   var Board = Snake.Board;
 
-  var View = Snake.View = function($container) {
-    this.$container = $container;
+  var View = Snake.View = function(options) {
+    this.$container = options.$container;
+    this.system = options.system;
     this.board = new Board();
     this.createBoardView();
     this.bindKeys();
-    this.run();
+    this.score = 0;
+    $("#score").html(0);
   };
 
   View.prototype.bindKeys = function () {
@@ -48,18 +50,22 @@
 
       if (view.board.isSnake(next) || view.board.isOutOfBounds(next)) {
         clearInterval(renderInterval)
-        alert("You lose!");
+        this.system.gameOver(this.score);
         return;
       } else {
         view.moveSnake();
         if (view.board.isApple(next)) {
           view.board.resetApple(next);
+          this.incrementScore();
         }
         view.render();
       }
-    }, 100);
+    }.bind(this), 100);
+  };
 
-    // renderInterval();
+  View.prototype.incrementScore = function () {
+    this.score += 10;
+    $("#score").html(this.score);
   };
 
   View.prototype.createBoardView = function () {
